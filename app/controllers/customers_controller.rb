@@ -59,7 +59,7 @@ class CustomersController < ApplicationController
   end
 
   private
-  ## Returns a copy of the parameters object, returning only the permitted keys and valuesReceives of data send from the client
+  # Returns a copy of the parameters object, returning only the permitted keys and valuesReceives of data send from the client
   def customer_params
     params.require(:customer).permit(:name, :address, :email, :password);
   end
