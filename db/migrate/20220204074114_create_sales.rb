@@ -5,7 +5,7 @@ class CreateSales < ActiveRecord::Migration[6.1]
       t.integer :customer_id
       t.float :price
       t.integer :quantity
-      t.string :dilievery_address
+      t.text :dilievery_address
       t.string :payment_method
 
       t.timestamps

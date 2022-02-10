@@ -1,15 +1,25 @@
 Rails.application.routes.draw do
-  get 'customers/create'
-  get 'product_categories/create'
-  get 'sales/create'
+  
+    # Customes endpoints
+    get 'customers/create'
+    get 'customers/customers';
+    get 'customers/login';
 
-  #Product endpints
-  post 'products/create'
-  get 'products/products'
+    # Product Category Endpoints
+    post 'product_categories/create'
+    get 'product_categories/product_categories'
+  
+    #Product endpints
+    post 'products/create'
+    get 'products/products'
 
-  # Users endpoints
-  post 'users/create';
-  get 'users/users';
-  get 'users/login';
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+    #Sales endpints
+    post 'sales/create'
+    get 'sales/sales'
+
+    # Users endpoints
+    post 'users/create';
+    get 'users/users';
+    get 'users/login';
+  
 end
