@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
       # header: { 'Authorization': 'Bearer <token>' }
       begin
-        JWT.decode(token, 'my_s3cr3t', true, algorithm: 'HS256')
+        JWT.decode(token, 'my_screte_key_#2022_api_#api_users', true, algorithm: 'HS256')
       rescue JWT::DecodeError
         nil
       end
