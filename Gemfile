@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# ruby '2.6.3'
-ruby '3.1.0'
+ruby '2.6.3'
+# ruby '3.1.0'
 
-gem 'net-smtp', require: false
+# gem 'net-smtp', require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
