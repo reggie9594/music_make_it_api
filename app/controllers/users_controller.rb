@@ -29,6 +29,35 @@ class UsersController < ApplicationController
     end
   end
 
+  def auth_header
+    # { Authorization: 'Bearer <token>' }
+    request.headers['Authorization']
+  end
+
+  def decoded_token
+    if auth_header
+      token = auth_header.split(' ')[1]
+
+      # header: { 'Authorization': 'Bearer <token>' }
+      begin
+        JWT.decode(token, 'my_s3cr3t', true, algorithm: 'HS256')
+      rescue JWT::DecodeError
+        nil
+      end
+    end
+  end
+
+  def current_user
+    if decoded_token
+      user_id = decoded_token[0]['user_id']
+      @user = User.find_by(id: user_id)
+    end
+  end
+
+  def is_authorised?
+    !!current_user
+  end
+
   private
   # Returns a copy of the parameters object, returning only the permitted keys and valuesReceives of data send from the client
   def user_params
@@ -47,6 +76,6 @@ class UsersController < ApplicationController
 
   # This fuction do JWT token encoding and the payload with the the fuction parameter
   def encode_token(payload)
-    return JWT.encode(payload, 'my_screte_key_#2022_api_#api') #JWT encording
+    return JWT.encode(payload, 'my_screte_key_#2022_api_#api_users') #JWT encording
   end
 end
